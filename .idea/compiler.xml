@@ -22,11 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="dropwizard-statsd" />
+        <module name="statsd-proxy" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="dropwizard-statsd" target="1.7" />
+      <module name="statsd-proxy" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
