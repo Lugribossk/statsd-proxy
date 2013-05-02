@@ -1,0 +1,3 @@
+statsd:
+  prefix: test
+  host: test
