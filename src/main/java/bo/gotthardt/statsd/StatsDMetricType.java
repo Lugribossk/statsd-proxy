@@ -1,8 +1,9 @@
 package bo.gotthardt.statsd;
 
+import lombok.RequiredArgsConstructor;
+
 import com.google.common.base.Optional;
 import com.timgroup.statsd.StatsDClient;
-import lombok.RequiredArgsConstructor;
 
 /**
  * The types of metrics StatsD/Graphite uses.
@@ -10,36 +11,36 @@ import lombok.RequiredArgsConstructor;
  * @author Bo Gotthardt
  */
 @RequiredArgsConstructor
-public enum StatsDMetric {
+public enum StatsDMetricType {
     COUNTER("c") {
         @Override
-        public void record(StatsDClient statsd, String bucket, Optional<Integer> value) {
-            statsd.count(bucket, value.or(1));
+        public void record(StatsDClient statsd, String path, Optional<Integer> value) {
+            statsd.count(path, value.or(1));
         }
     },
     GAUGE("g") {
         @Override
-        public void record(StatsDClient statsd, String bucket, Optional<Integer> value) {
+        public void record(StatsDClient statsd, String path, Optional<Integer> value) {
             if (value.isPresent()) {
-                statsd.gauge(bucket, value.get());
+                statsd.gauge(path, value.get());
             }
         }
     },
     TIME("t") {
         @Override
-        public void record(StatsDClient statsd, String bucket, Optional<Integer> value) {
+        public void record(StatsDClient statsd, String path, Optional<Integer> value) {
             if (value.isPresent()) {
-                statsd.time(bucket, value.get());
+                statsd.time(path, value.get());
             }
         }
     };
 
     private final String externalForm;
 
-    public abstract void record(StatsDClient statsd, String bucket, Optional<Integer> value);
+    public abstract void record(StatsDClient statsd, String path, Optional<Integer> value);
 
-    public static StatsDMetric fromString(String input) {
-        for (StatsDMetric action : values()) {
+    public static StatsDMetricType fromString(String input) {
+        for (StatsDMetricType action : values()) {
             if (action.name().equalsIgnoreCase(input) || action.externalForm.equalsIgnoreCase(input)) {
                 return action;
             }

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.sun.jersey.api.client.ClientResponse;
 import com.yammer.dropwizard.testing.ResourceTest;
 import org.junit.Before;
-import org.mockito.MockitoAnnotations;
 
 import javax.ws.rs.core.MediaType;
 import java.util.logging.Level;
@@ -17,12 +16,6 @@ import java.util.logging.Logger;
  */
 public abstract class ImprovedResourceTest extends ResourceTest {
     private final ObjectMapper MAPPER = getObjectMapperFactory().build();
-
-    @Before
-    public void initMocks() {
-        MockitoAnnotations.initMocks(this);
-    }
-
 
     @Before
     public void squelchSpammyLoggers() {

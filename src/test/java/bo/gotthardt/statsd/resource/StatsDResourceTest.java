@@ -20,45 +20,45 @@ public class StatsDResourceTest extends ImprovedResourceTest {
 
     @Override
     protected void setUpResources() throws Exception {
-        addResource(new StatsDResource(statsd));
+        addResource(new StatsDResource(statsd, ""));
     }
 
     @Test
     public void counterWorks() {
-        assertThat(GET("/stats?b=testbucket&m=counter&v=2"))
-                .hasStatus(Response.Status.NO_CONTENT);
+        assertThat(GET("/stats?p=testbucket&t=counter&v=2"))
+                .hasStatus(Response.Status.OK);
 
         verify(statsd).count("testbucket", 2);
     }
 
     @Test
     public void gaugeWorks() {
-        assertThat(GET("/stats?b=testbucket&m=gauge&v=5"))
-                .hasStatus(Response.Status.NO_CONTENT);
+        assertThat(GET("/stats?p=testbucket&t=gauge&v=5"))
+                .hasStatus(Response.Status.OK);
 
         verify(statsd).gauge("testbucket", 5);
     }
 
     @Test
     public void timeWorks() {
-        assertThat(GET("/stats?b=testbucket&m=time&v=1000"))
-                .hasStatus(Response.Status.NO_CONTENT);
+        assertThat(GET("/stats?p=testbucket&t=time&v=1000"))
+                .hasStatus(Response.Status.OK);
 
         verify(statsd).time("testbucket", 1000);
     }
 
     @Test
     public void counterDefaultsValueTo1() {
-        assertThat(GET("/stats?b=testbucket&m=counter"))
-                .hasStatus(Response.Status.NO_CONTENT);
+        assertThat(GET("/stats?p=testbucket&t=counter"))
+                .hasStatus(Response.Status.OK);
 
         verify(statsd).count("testbucket", 1);
     }
 
     @Test
     public void metricDefaultsToCounter() {
-        assertThat(GET("/stats?b=testbucket"))
-                .hasStatus(Response.Status.NO_CONTENT);
+        assertThat(GET("/stats?p=testbucket"))
+                .hasStatus(Response.Status.OK);
 
         verify(statsd).count("testbucket", 1);
     }
@@ -66,6 +66,6 @@ public class StatsDResourceTest extends ImprovedResourceTest {
     @Test
     public void invalidRequestDoesNotBlowUp() {
         assertThat(GET("/stats"))
-                .hasStatus(Response.Status.NO_CONTENT);
+                .hasStatus(Response.Status.OK);
     }
 }
