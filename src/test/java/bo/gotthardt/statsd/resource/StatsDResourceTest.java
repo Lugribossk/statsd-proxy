@@ -1,9 +1,12 @@
 package bo.gotthardt.statsd.resource;
 
 import bo.gotthardt.util.ImprovedResourceTest;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
 import com.timgroup.statsd.StatsDClient;
 import org.junit.Test;
 
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
 import static bo.gotthardt.util.fest.DropwizardAssertions.assertThat;
@@ -67,5 +70,18 @@ public class StatsDResourceTest extends ImprovedResourceTest {
     public void invalidRequestDoesNotBlowUp() {
         assertThat(GET("/stats"))
                 .hasStatus(Response.Status.OK);
+    }
+
+    @Test
+    public void postWorks() {
+        MultivaluedMap<String, String> values = new MultivaluedMapImpl();
+        values.add("p", "testbucket");
+        values.add("t", "counter");
+        values.add("v", "2");
+
+        assertThat(POST("/stats?p=testbucket&t=counter&v=2", values, MediaType.APPLICATION_FORM_URLENCODED_TYPE))
+                .hasStatus(Response.Status.OK);
+
+        verify(statsd).count("testbucket", 2);
     }
 }

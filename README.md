@@ -14,7 +14,7 @@ A simple server for forwarding HTTP requests to StatsD.
 
 ## Using
 
-Send requests to `servername/stats` with the following query parameters:
+Send GET or POST request to `servername/stats` with the following query or form parameters:
 
 `p`: The path/bucket/aspect/metric name to use.
 
