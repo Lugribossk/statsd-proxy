@@ -1,3 +1,5 @@
+# Additional configuration options: http://dropwizard.codahale.com/manual/core/#configuration-defaults
+
 statsd:
   prefix: test
   host: test
