@@ -86,7 +86,7 @@
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>bo.gotthardt.statsd.application.TodoApplication</mainClass>
+                                    <mainClass>bo.gotthardt.statsd.application.StatsDProxyApplication</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
