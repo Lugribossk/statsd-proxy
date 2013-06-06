@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="lombok-0.11.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.projectlombok/lombok/0.11.6/jar/ba171d45e78f08ccca3cf531d285f13cfb4de2c7/lombok-0.11.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/org.projectlombok/lombok/0.11.6/source/9740a679a7cfadc9ca7615c2fada1f5255d80447/lombok-0.11.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

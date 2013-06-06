@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="metrics-logback-2.2.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/com.yammer.metrics/metrics-logback/2.2.0/jar/d5db4b1401c7233beb25aa513a16fb88549e762f/metrics-logback-2.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/com.yammer.metrics/metrics-logback/2.2.0/source/b082fa26808fca9358881a9cf63777a71b47b880/metrics-logback-2.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

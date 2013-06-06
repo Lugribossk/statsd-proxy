@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jersey-test-framework-inmemory-1.17.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/com.sun.jersey.jersey-test-framework/jersey-test-framework-inmemory/1.17.1/jar/b378f6c5cd8f4433983e1496e8678c71d39b33a0/jersey-test-framework-inmemory-1.17.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-24/filestore/com.sun.jersey.jersey-test-framework/jersey-test-framework-inmemory/1.17.1/source/47ed8b4b09d1c8dc387c585939c400b3f3357af/jersey-test-framework-inmemory-1.17.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
