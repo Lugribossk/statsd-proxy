@@ -4,12 +4,13 @@
 
     <groupId>bo.gotthardt.statsd</groupId>
     <artifactId>statsd-proxy</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <name>StatsD HTTP proxy</name>
 
     <scm>
         <developerConnection>scm:git:git@github.com:Lugribossk/statsd-proxy.git</developerConnection>
         <url>https://github.com/Lugribossk/statsd-proxy</url>
+    <tag>v1.0.3</tag>
   </scm>
 
     <properties>
