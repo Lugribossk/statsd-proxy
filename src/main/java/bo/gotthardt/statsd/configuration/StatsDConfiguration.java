@@ -8,8 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Getter
 public class StatsDConfiguration {
-    @NotEmpty
-    private String prefix;
+    private String prefix = "";
     @NotEmpty
     private String host;
     private int port = 8125;
