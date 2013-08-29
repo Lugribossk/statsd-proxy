@@ -23,7 +23,7 @@ public class StatsDResourceTest extends ImprovedResourceTest {
 
     @Override
     protected void setUpResources() throws Exception {
-        addResource(new StatsDResource(statsd, ""));
+        addResource(new StatsDResource(statsd, "gifcontent"));
     }
 
     @Test
@@ -79,7 +79,17 @@ public class StatsDResourceTest extends ImprovedResourceTest {
         values.add("t", "counter");
         values.add("v", "2");
 
-        assertThat(POST("/stats?p=testbucket&t=counter&v=2", values, MediaType.APPLICATION_FORM_URLENCODED_TYPE))
+        assertThat(POST("/stats", values, MediaType.APPLICATION_FORM_URLENCODED_TYPE))
+                .hasStatus(Response.Status.OK);
+
+        verify(statsd).count("testbucket", 2);
+    }
+
+    @Test
+    public void gifWorks() {
+        assertThat(GET("/stats/s.gif?p=testbucket&t=counter&v=2"))
+                .hasContent("gifcontent")
+                .hasContentType("image/gif")
                 .hasStatus(Response.Status.OK);
 
         verify(statsd).count("testbucket", 2);

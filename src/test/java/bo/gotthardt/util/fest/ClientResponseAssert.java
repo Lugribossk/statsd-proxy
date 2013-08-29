@@ -39,9 +39,13 @@ public class ClientResponseAssert extends AbstractAssert<ClientResponseAssert, C
     }
 
     public ClientResponseAssert hasContentType(MediaType type) {
+        return hasContentType(type.toString());
+    }
+
+    public ClientResponseAssert hasContentType(String type) {
         isNotNull();
 
-        compare(actual.getType().getType(), type.getType(), "Content type");
+        compare(actual.getType().toString(), type, "Content type");
 
         return this;
     }
@@ -58,6 +62,13 @@ public class ClientResponseAssert extends AbstractAssert<ClientResponseAssert, C
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        return this;
+    }
+
+    public ClientResponseAssert hasContent(String expected) {
+        String actualValue = actual.getEntity(String.class);
+        compare(actualValue, expected, "Content");
 
         return this;
     }
