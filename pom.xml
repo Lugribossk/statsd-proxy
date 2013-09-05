@@ -10,8 +10,8 @@
     <scm>
         <developerConnection>scm:git:git@github.com:Lugribossk/statsd-proxy.git</developerConnection>
         <url>https://github.com/Lugribossk/statsd-proxy</url>
-    <tag>v1.0.3</tag>
-  </scm>
+        <tag>v1.0.3</tag>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -219,12 +219,10 @@
         <dependency>
             <groupId>com.datasift.dropwizard</groupId>
             <artifactId>dropwizard-extra-core</artifactId>
-            <version>${dropwizard.version}-1</version>
         </dependency>
         <dependency>
             <groupId>com.timgroup</groupId>
             <artifactId>java-statsd-client</artifactId>
-            <version>2.0.0</version>
         </dependency>
 
         <dependency>
@@ -251,6 +249,17 @@
             </dependency>
 
             <dependency>
+                <groupId>com.datasift.dropwizard</groupId>
+                <artifactId>dropwizard-extra-core</artifactId>
+                <version>${dropwizard.version}-1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.timgroup</groupId>
+                <artifactId>java-statsd-client</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>14.0.1</version>
@@ -263,7 +272,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>0.11.6</version>
+                <version>0.12.0</version>
             </dependency>
 
             <dependency>
