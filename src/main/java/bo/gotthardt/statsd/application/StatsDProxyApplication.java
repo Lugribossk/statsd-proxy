@@ -4,8 +4,7 @@ import bo.gotthardt.statsd.configuration.StatsDConfiguration;
 import bo.gotthardt.statsd.configuration.StatsDProxyConfiguration;
 import bo.gotthardt.statsd.jersey.filter.AllowAllOriginsFilter;
 import bo.gotthardt.statsd.resource.StatsDResource;
-import lombok.extern.slf4j.Slf4j;
-
+import com.datasift.dropwizard.bundles.GraphiteReportingBundle;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import com.timgroup.statsd.NonBlockingStatsDClient;
@@ -14,9 +13,11 @@ import com.timgroup.statsd.StatsDClientErrorHandler;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Simple application for proxying HTTP requests to a StatsD server.
+ * This is useful for sending data directly from a Javascript application.
  *
  * @author Bo Gotthardt
  */
@@ -29,7 +30,7 @@ public class StatsDProxyApplication extends Service<StatsDProxyConfiguration> {
 
     @Override
     public void initialize(Bootstrap<StatsDProxyConfiguration> bootstrap) {
-        // Empty on purpose.
+        bootstrap.addBundle(new GraphiteReportingBundle());
     }
 
     @Override
@@ -51,6 +52,6 @@ public class StatsDProxyApplication extends Service<StatsDProxyConfiguration> {
             }
         };
 
-        return  new NonBlockingStatsDClient(config.getPrefix(), config.getHost(), config.getPort(), errorHandler);
+        return new NonBlockingStatsDClient(config.getPrefix(), config.getHost(), config.getPort(), errorHandler);
     }
 }

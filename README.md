@@ -2,6 +2,7 @@ StatsD proxy
 =================
 
 A simple server for forwarding HTTP requests to StatsD.
+This is useful for sending data directly from a Javascript application.
 
 
 ## Building
