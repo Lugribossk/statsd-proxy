@@ -103,6 +103,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-joda:2.1.2" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:0.12.0" level="project" />
     <orderEntry type="library" name="Maven: com.datasift.dropwizard:dropwizard-extra-core:0.6.2-1" level="project" />
+    <orderEntry type="library" name="Maven: com.yammer.metrics:metrics-graphite:2.2.0" level="project" />
     <orderEntry type="library" name="Maven: com.timgroup:java-statsd-client:2.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.yammer.dropwizard:dropwizard-testing:0.6.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.sun.jersey.jersey-test-framework:jersey-test-framework-core:1.17.1" level="project" />
