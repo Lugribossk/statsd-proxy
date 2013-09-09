@@ -10,7 +10,6 @@
     <scm>
         <developerConnection>scm:git:git@github.com:Lugribossk/statsd-proxy.git</developerConnection>
         <url>https://github.com/Lugribossk/statsd-proxy</url>
-        <tag>v1.0.3</tag>
     </scm>
 
     <properties>
@@ -221,6 +220,10 @@
             <artifactId>dropwizard-extra-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.yammer.metrics</groupId>
+            <artifactId>metrics-graphite</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.timgroup</groupId>
             <artifactId>java-statsd-client</artifactId>
         </dependency>
@@ -252,6 +255,11 @@
                 <groupId>com.datasift.dropwizard</groupId>
                 <artifactId>dropwizard-extra-core</artifactId>
                 <version>${dropwizard.version}-1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yammer.metrics</groupId>
+                <artifactId>metrics-graphite</artifactId>
+                <version>2.2.0</version>
             </dependency>
             <dependency>
                 <groupId>com.timgroup</groupId>

@@ -4,6 +4,8 @@ import bo.gotthardt.statsd.configuration.StatsDConfiguration;
 import bo.gotthardt.statsd.configuration.StatsDProxyConfiguration;
 import bo.gotthardt.statsd.jersey.filter.AllowAllOriginsFilter;
 import bo.gotthardt.statsd.resource.StatsDResource;
+import lombok.extern.slf4j.Slf4j;
+
 import com.datasift.dropwizard.bundles.GraphiteReportingBundle;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
@@ -13,7 +15,6 @@ import com.timgroup.statsd.StatsDClientErrorHandler;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Simple application for proxying HTTP requests to a StatsD server.
@@ -35,7 +36,7 @@ public class StatsDProxyApplication extends Service<StatsDProxyConfiguration> {
 
     @Override
     public void run(StatsDProxyConfiguration configuration, Environment environment) throws Exception {
-        environment.addHealthCheck(new StatsDHealthCheck(configuration.getStatsd()));
+        environment.addHealthCheck(new VersionHealthCheck());
 
         String gif = Resources.toString(Resources.getResource("1x1.gif"), Charsets.UTF_8);
         environment.addResource(new StatsDResource(createStatsDClient(configuration.getStatsd()), gif));
